@@ -176,9 +176,10 @@ public class KontalkConnection extends XMPPTCPConnection {
             }
 
             ctx.init(km, tm, null);
-            builder.setCustomSSLContext(ctx);
             if (direct)
                 builder.setSocketFactory(ctx.getSocketFactory());
+            else
+                builder.setCustomSSLContext(ctx);
 
             // SASL EXTERNAL is already enabled in Smack
         }
